@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router'; //Navegação
 import {Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, useWindowDimensions } from 'react-native'; //tudo que será usado no código
 
-export default function LoginScreen() { //função principal do código. pode srer importada em outros 
+export default function LoginScreen() { //função principal do código. pode ser importada em outros 
   const router = useRouter();
   const { width, height } = useWindowDimensions();
   const isMobile = width < 768;
@@ -12,14 +12,14 @@ export default function LoginScreen() { //função principal do código. pode sr
       <ScrollView contentContainerStyle={stylesMobile.scrollContainer} showsVerticalScrollIndicator={false}>
         <View style={[stylesMobile.imageContainer, { height }]}>
           <Image
-            source={require('@/assets/images/radiance.png')} 
+            source={require('@/assets/images/viagens.png')} 
             style={stylesMobile.logo}
             resizeMode="contain"
           />
         </View>
 
         <View style={[stylesMobile.formContainer, { minHeight: height }]}> 
-          <Text style={stylesMobile.title}>Radiance Studio</Text>
+          <Text style={stylesMobile.title}>Explore world</Text>
 
           <Text style={stylesMobile.label}>Email</Text>
           <TextInput
@@ -35,7 +35,7 @@ export default function LoginScreen() { //função principal do código. pode sr
             secureTextEntry
           />
 
-          <TouchableOpacity style={stylesMobile.button}>
+          <TouchableOpacity style={stylesMobile.button} onPress={() => router.push('/homescreen')}>
             <Text style={stylesMobile.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
@@ -47,19 +47,19 @@ export default function LoginScreen() { //função principal do código. pode sr
     );
   }
 
-  // DESKTOP/WINDOW: tela dividida horizontalmente 70/30
+// DESKTOP/WINDOW: tela dividida ho rizontalmente 70/30
   return (
     <View style={stylesDesktop.container}>
       <View style={stylesDesktop.leftPanel}>
         <Image
-          source={require('@/assets/images/radiance.png')} 
+          source={require('@/assets/images/viagens.png')} 
           style={stylesDesktop.image}
           resizeMode="contain"
         />
       </View>
 
       <View style={stylesDesktop.rightPanel}>
-        <Text style={stylesDesktop.title}>Radiance Studio</Text>
+        <Text style={stylesDesktop.title}>Explore world</Text>
 
         <Text style={stylesDesktop.label}>Email</Text>
         <TextInput
@@ -75,9 +75,10 @@ export default function LoginScreen() { //função principal do código. pode sr
           secureTextEntry
         />
 
-        <TouchableOpacity style={stylesDesktop.button}>
-          <Text style={stylesDesktop.buttonText}>Entrar</Text>
-        </TouchableOpacity>
+
+        <TouchableOpacity style={stylesDesktop.button} onPress={() => router.push('/homescreen')}>
+            <Text style={stylesDesktop.buttonText}>Entrar</Text>
+          </TouchableOpacity>
 
         <TouchableOpacity onPress={() => router.push('/register')}>
           <Text style={stylesDesktop.register}>Não possui conta? Cadastre-se aqui!</Text>
@@ -94,34 +95,34 @@ const stylesDesktop = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     height: '100%',
-    backgroundColor: '#FFD1DC',
+    backgroundColor: '#D0E8FF', // azul claro
   },
   leftPanel: {
-    flex: 7, // 70%
+    flex: 7,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF7DAA',
+    backgroundColor: '#5DADE2', // azul mais escuro
   },
   image: {
-    width: '90%',
-    height: '90%',
+    width: '50%',
+    height: '50%',
   },
   rightPanel: {
-    flex: 3, // 30%
-    backgroundColor: '#FFB6C1',
+    flex: 3,
+    backgroundColor: '#AED6F1', // azul médio
     padding: 30,
     justifyContent: 'center',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4B1E2F',
+    color: '#154360', // azul escuro para contraste
     textAlign: 'center',
     marginBottom: 30,
   },
   label: {
     fontWeight: '600',
-    color: '#4B1E2F',
+    color: '#154360',
     marginBottom: 5,
   },
   input: {
@@ -132,7 +133,7 @@ const stylesDesktop = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    backgroundColor: '#FF7DAA',
+    backgroundColor: '#3498DB', // botão azul
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
@@ -144,29 +145,26 @@ const stylesDesktop = StyleSheet.create({
   },
   register: {
     textAlign: 'center',
-    color: '#4B1E2F',
+    color: '#154360',
     marginTop: 10,
   },
 });
 
-
-//tela para mobile//
-
 const stylesMobile = StyleSheet.create({
   scrollContainer: {
-    backgroundColor: '#FFD1DC',
+    backgroundColor: '#D0E8FF',
   },
   imageContainer: {
-    backgroundColor: '#FF7DAA',
+    backgroundColor: '#5DADE2',
     justifyContent: 'center',
     alignItems: 'center',
   },
   logo: {
-    width: '90%',
-    height: '90%',
+    width: '50%',
+    height: '50%',
   },
   formContainer: {
-    backgroundColor: '#FFCCCB',
+    backgroundColor: '#AED6F1',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     padding: 30,
@@ -175,13 +173,13 @@ const stylesMobile = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4B1E2F',
+    color: '#154360',
     textAlign: 'center',
     marginBottom: 30,
   },
   label: {
     fontWeight: '600',
-    color: '#4B1E2F',
+    color: '#154360',
     marginBottom: 5,
   },
   input: {
@@ -192,7 +190,7 @@ const stylesMobile = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    backgroundColor: '#FF7DAA',
+    backgroundColor: '#3498DB',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -204,15 +202,7 @@ const stylesMobile = StyleSheet.create({
   },
   register: {
     textAlign: 'center',
-    color: '#4B1E2F',
+    color: '#154360',
     marginTop: 10,
   },
 });
-
-
-
-
-
-
-
-

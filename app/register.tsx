@@ -11,7 +11,7 @@ export default function SignupScreen() {
       <View style={styles.bottomContainer}>
         <View style={{ height: 60 }} />
 
-        <Text style={styles.title}>Cadastro - Radiance Studio</Text>
+        <Text style={styles.title}>Cadastro - Explore world</Text>
 
         <Text style={styles.label}>Nome</Text>
         <TextInput
@@ -52,14 +52,13 @@ export default function SignupScreen() {
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   scrollContainer: {
-    backgroundColor: '#FFD1DC',
+    backgroundColor: '#D0E8FF', // azul claro de fundo
   },
   bottomContainer: {
     padding: 20,
-    backgroundColor: '#FFCCCB',
+    backgroundColor: '#AED6F1', // azul médio para o formulário
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     minHeight: height,
@@ -67,13 +66,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4B1E2F',
+    color: '#154360', // azul escuro para contraste
     textAlign: 'center',
     marginBottom: 20,
   },
   label: {
     fontWeight: '500',
-    color: '#4B1E2F',
+    color: '#154360',
     marginBottom: 5,
   },
   input: {
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    backgroundColor: '#FF7DAA',
+    backgroundColor: '#3498DB', // azul do botão
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -96,7 +95,8 @@ const styles = StyleSheet.create({
   },
   register: {
     textAlign: 'center',
-    color: '#4B1E2F',
+    color: '#154360',
     marginTop: 10,
   },
 });
+
