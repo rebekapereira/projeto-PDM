@@ -1,5 +1,6 @@
 import { useRouter } from 'expo-router';
 import { Dimensions, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { AntDesign } from '@expo/vector-icons'; // ícone da seta
 
 const { height } = Dimensions.get('window');
 
@@ -9,7 +10,12 @@ export default function SignupScreen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
       <View style={styles.bottomContainer}>
-        <View style={{ height: 60 }} />
+        {/* Seta de voltar */}
+        <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
+          <AntDesign name="arrowleft" size={24} color="#154360" />
+        </TouchableOpacity>
+
+        <View style={{ height: 40 }} />
 
         <Text style={styles.title}>Cadastro - Explore world</Text>
 
@@ -43,7 +49,7 @@ export default function SignupScreen() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
-
+        
 
         <TouchableOpacity onPress={() => router.push('/')}>
           <Text style={styles.register}>Já tem conta? Faça login!</Text>
@@ -52,21 +58,27 @@ export default function SignupScreen() {
     </ScrollView>
   );
 }
+
 const styles = StyleSheet.create({
   scrollContainer: {
-    backgroundColor: '#D0E8FF', // azul claro de fundo
+    backgroundColor: '#D0E8FF',
   },
   bottomContainer: {
     padding: 20,
-    backgroundColor: '#AED6F1', // azul médio para o formulário
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    backgroundColor: '#AED6F1',
     minHeight: height,
+    paddingTop: 50,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 10,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#154360', // azul escuro para contraste
+    color: '#154360',
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    backgroundColor: '#3498DB', // azul do botão
+    backgroundColor: '#3498DB',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -99,4 +111,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
 
